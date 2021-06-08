@@ -1,8 +1,8 @@
 <?php
 
-namespace JoseGus\LaravelFlash\Tests;
+namespace DPWebSolutions\LaravelFlash\Tests;
 
-use JoseGus\LaravelFlash\LaravelFlashServiceProvider;
+use DPWebSolutions\LaravelFlash\LaravelFlashServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra

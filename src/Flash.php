@@ -1,6 +1,6 @@
 <?php
 
-namespace JoseGus\LaravelFlash;
+namespace DPWebSolutions\LaravelFlash;
 
 class Flash
 {
@@ -115,7 +115,7 @@ class Flash
      */
     public function dismissible($dismissible = true)
     {
-        $notifications = session()->get($this->key);
+        $notifications = session()->get($this->key());
 
         if (empty($notifications)) {
             return;

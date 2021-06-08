@@ -1,6 +1,6 @@
 <?php
 
-namespace JoseGus\LaravelFlash;
+namespace DPWebSolutions\LaravelFlash;
 
 use Illuminate\Support\ServiceProvider;
 

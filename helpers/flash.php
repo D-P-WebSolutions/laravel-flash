@@ -1,6 +1,6 @@
 <?php
 
-use JoseGus\LaravelFlash\Flash;
+use DPWebSolutions\LaravelFlash\Flash;
 
 /**
  * Return a new instance of flash class
