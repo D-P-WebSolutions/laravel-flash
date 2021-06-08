@@ -9,7 +9,9 @@ class FlashDismissibleTest extends TestCase
     {
         flash()->error('Exception')->dismissible(true);
 
-        $this->assertTrue(session('flash_notification.dismissible'));
+        $index = count(session('flash_notifications')) - 1;
+
+        $this->assertTrue(session("flash_notifications.{$index}.dismissible"));
     }
 
     /** @test */
@@ -17,6 +19,8 @@ class FlashDismissibleTest extends TestCase
     {
         flash('Good job')->dismissible(false);
 
-        $this->assertFalse(session('flash_notification.dismissible'));
+        $index = count(session('flash_notifications')) - 1;
+
+        $this->assertFalse(session("flash_notifications.{$index}.dismissible"));
     }
 }

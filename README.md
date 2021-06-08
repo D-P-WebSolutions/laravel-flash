@@ -10,6 +10,7 @@ This composer package offers an easy way to manage and show laravel flash messag
 It includes default messages for most commonly use actions such as "success", "error" messages,
 or CRUD operations (stored, updated, deleted).
 
+Multiple messages can be pushed and displayed.
 
 ## Installation
 
@@ -63,14 +64,27 @@ The package includes most of common messages for different actions inside most l
 Once you have flashed a message in session, you will need to display it in your view. Use the component included in the packace:
 
 ```html
-<x-flash::message />
+<x-flash::messages />
 ```
 
 Don't like the new component syntax? It's ok, use the ```@include``` directive included
 with the package:
 
 ```php
-@include('flash::message')
+@include('flash::messages')
+```
+
+## JS API
+One or multiple messages can be also flashed via a JS API.
+
+```javascript
+FlashNotifications.push(type = 'success', message = null, dismissible = true)
+```
+
+### Example
+```javascript
+FlashNotifications.push('success', 'Email sent!', true)
+                  .push('error', 'Game lost :(', false)
 ```
 
 ## Configuration
@@ -97,7 +111,7 @@ Now you should have views inside `resources/views/vendor/flash` folder. If you a
 
 ## Using default validations view
 
-By default, the package show the validation errors inside the `flash::message` view. Validation errors are showed inside a "alert-danger" as an unordered list by default.
+By default, the package show the validation errors inside the `flash::messages` view. Validation errors are showed inside a "alert-danger" as an unordered list by default.
 
 You can disable this behaviour by changing `flash.validations.enabled` to `false` in config/flash.php file.
 
@@ -125,10 +139,10 @@ necessary stylesheets.
 
 <div class="container">
     <!-- Use as blade component -->
-    <x-flash::message />
+    <x-flash::messages />
 
     <!-- Use with blade directive -->
-    @include('flash::message')
+    @include('flash::messages')
 
     <p>Welcome to my website...</p>
 </div>

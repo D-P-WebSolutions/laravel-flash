@@ -9,7 +9,10 @@ class FlashViewMessageTest extends TestCase
     {
         flash('Saved');
 
-        $this->assertStringContainsString('Saved', view('flash::message')->render());
+        $this->assertStringContainsString(
+            'Saved',
+            view('flash::messages', ['notification' => session('flash_notifications')[0]])->render()
+        );
     }
 
     /**
@@ -21,7 +24,10 @@ class FlashViewMessageTest extends TestCase
     {
         flash()->$type('A simple message');
 
-        $this->assertStringContainsString('A simple message', view('flash::message')->render());
+        $this->assertStringContainsString(
+            'A simple message',
+            view('flash::messages', ['notification' => session('flash_notifications')[0]])->render()
+        );
     }
 
     /**
@@ -33,6 +39,9 @@ class FlashViewMessageTest extends TestCase
     {
         flash()->$type();
 
-        $this->assertStringContainsString(config("flash.messages.{$type}"), view('flash::message')->render());
+        $this->assertStringContainsString(
+            config("flash.messages.{$type}"),
+            view('flash::messages', ['notification' => session('flash_notifications')[0]])->render()
+        );
     }
 }

@@ -2,6 +2,8 @@
 
 return [
 
+    'session_key' => 'flash_notifications',
+
     /*
      * If true, all flash notifications will have an "x" to make them dismissible
      */
