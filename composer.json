@@ -1,5 +1,5 @@
 {
-    "name": "josegus/laravel-flash",
+    "name": "dp-websolutions/laravel-flash",
     "require": {
         "php": ">=7.2",
         "illuminate/session": "^6.0|^7.0|^8.0"
@@ -12,13 +12,13 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Gustavo",
-            "email": "jgvv15@gmail.com"
+            "name": "Luca",
+            "email": "info@lucapuddu.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "JoseGus\\LaravelFlash\\": "src/"
+            "DPWebSolutions\\LaravelFlash\\": "src/"
         },
         "files": [
             "helpers/flash.php"
@@ -26,13 +26,13 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "JoseGus\\LaravelFlash\\Tests\\": "tests"
+            "DPWebSolutions\\LaravelFlash\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "JoseGus\\LaravelFlash\\LaravelFlashServiceProvider"
+                "DPWebSolutions\\LaravelFlash\\LaravelFlashServiceProvider"
             ]
         }
     },

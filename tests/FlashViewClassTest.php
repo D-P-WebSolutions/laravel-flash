@@ -13,7 +13,10 @@ class FlashViewClassTest extends TestCase
     {
         flash()->$type();
 
-        $this->assertStringContainsString(config("flash.classes.tailwind.{$type}"), view('flash::message')->render());
+        $this->assertStringContainsString(
+            config("flash.classes.tailwind.{$type}"),
+            view('flash::messages', ['notification' => session('flash_notifications')[0]])->render()
+        );
     }
 
     /**
@@ -27,6 +30,9 @@ class FlashViewClassTest extends TestCase
 
         flash()->$type();
 
-        $this->assertStringContainsString(config("flash.classes.bootstrap.{$type}"), view('flash::message')->render());
+        $this->assertStringContainsString(
+            config("flash.classes.bootstrap.{$type}"),
+            view('flash::messages', ['notification' => session('flash_notifications')[0]])->render()
+        );
     }
 }

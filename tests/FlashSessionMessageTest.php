@@ -15,7 +15,9 @@ class FlashSessionMessageTest extends TestCase
 
         flash()->$type($message);
 
-        $this->assertEquals($message, session('flash_notification.message'));
+        $index = count(session('flash_notifications')) - 1;
+
+        $this->assertEquals($message, session( "flash_notifications.{$index}.message"));
     }
 
     /**
@@ -29,6 +31,8 @@ class FlashSessionMessageTest extends TestCase
 
         flash()->$type($message);
 
-        $this->assertEquals($type, session('flash_notification.type'));
+        $index = count(session('flash_notifications')) - 1;
+
+        $this->assertEquals($type, session("flash_notifications.{$index}.type"));
     }
 }

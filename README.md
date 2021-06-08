@@ -1,22 +1,20 @@
-![Laravel flash notifications](https://banners.beyondco.de/Flash%20alert%20notifications.png?theme=light&packageManager=composer+require&packageName=josegus%2Flaravel-flash&pattern=fallingTriangles&style=style_1&description=Flash+messages+an+validations+%28tailwind+and+bootstrap%29&md=1&showWatermark=1&fontSize=100px&images=bell)
-
 # Tailwind flash alert messages and validations for your Laravel apps
 
-[![Build Status](https://travis-ci.com/josegus/laravel-flash.svg?branch=master)](https://travis-ci.com/josegus/laravel-flash)
-[![Latest Stable Version](https://poser.pugx.org/josegus/laravel-flash/v)](//packagist.org/packages/josegus/laravel-flash) [![Total Downloads](https://poser.pugx.org/josegus/laravel-flash/downloads)](//packagist.org/packages/josegus/laravel-flash) [![Latest Unstable Version](https://poser.pugx.org/josegus/laravel-flash/v/unstable)](//packagist.org/packages/josegus/laravel-flash) [![License](https://poser.pugx.org/josegus/laravel-flash/license)](//packagist.org/packages/josegus/laravel-flash)
+[![Latest Stable Version](https://poser.pugx.org/dp-websolutions/laravel-flash/v)](//packagist.org/packages/dp-websolutions/laravel-flash) [![Total Downloads](https://poser.pugx.org/dp-websolutions/laravel-flash/downloads)](//packagist.org/packages/dp-websolutions/laravel-flash) [![Latest Unstable Version](https://poser.pugx.org/dp-websolutions/laravel-flash/v/unstable)](//packagist.org/packages/dp-websolutions/laravel-flash) [![License](https://poser.pugx.org/dp-websolutions/laravel-flash/license)](//packagist.org/packages/dp-websolutions/laravel-flash)
 
 This composer package offers an easy way to manage and show laravel flash message alert notifications. Works with Tailwindcss (default) and Bootstrap.
 
 It includes default messages for most commonly use actions such as "success", "error" messages,
 or CRUD operations (stored, updated, deleted).
 
+Multiple messages can be pushed and displayed.
 
 ## Installation
 
 Require the package by executing:
 
 ```bash
-composer require josegus/laravel-flash
+composer require dp-websolutions/laravel-flash
 ```
 
 
@@ -63,14 +61,27 @@ The package includes most of common messages for different actions inside most l
 Once you have flashed a message in session, you will need to display it in your view. Use the component included in the packace:
 
 ```html
-<x-flash::message />
+<x-flash::messages />
 ```
 
 Don't like the new component syntax? It's ok, use the ```@include``` directive included
 with the package:
 
 ```php
-@include('flash::message')
+@include('flash::messages')
+```
+
+## JS API
+One or multiple messages can be also flashed via a JS API.
+
+```javascript
+FlashNotifications.push(type = 'success', message = null, dismissible = true)
+```
+
+### Example
+```javascript
+FlashNotifications.push('success', 'Email sent!', true)
+                  .push('error', 'Game lost :(', false)
 ```
 
 ## Configuration
@@ -97,7 +108,7 @@ Now you should have views inside `resources/views/vendor/flash` folder. If you a
 
 ## Using default validations view
 
-By default, the package show the validation errors inside the `flash::message` view. Validation errors are showed inside a "alert-danger" as an unordered list by default.
+By default, the package show the validation errors inside the `flash::messages` view. Validation errors are showed inside a "alert-danger" as an unordered list by default.
 
 You can disable this behaviour by changing `flash.validations.enabled` to `false` in config/flash.php file.
 
@@ -125,10 +136,10 @@ necessary stylesheets.
 
 <div class="container">
     <!-- Use as blade component -->
-    <x-flash::message />
+    <x-flash::messages />
 
     <!-- Use with blade directive -->
-    @include('flash::message')
+    @include('flash::messages')
 
     <p>Welcome to my website...</p>
 </div>
