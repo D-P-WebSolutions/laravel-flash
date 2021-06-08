@@ -1,9 +1,6 @@
-![Laravel flash notifications](https://banners.beyondco.de/Flash%20alert%20notifications.png?theme=light&packageManager=composer+require&packageName=josegus%2Flaravel-flash&pattern=fallingTriangles&style=style_1&description=Flash+messages+an+validations+%28tailwind+and+bootstrap%29&md=1&showWatermark=1&fontSize=100px&images=bell)
-
 # Tailwind flash alert messages and validations for your Laravel apps
 
-[![Build Status](https://travis-ci.com/josegus/laravel-flash.svg?branch=master)](https://travis-ci.com/josegus/laravel-flash)
-[![Latest Stable Version](https://poser.pugx.org/josegus/laravel-flash/v)](//packagist.org/packages/josegus/laravel-flash) [![Total Downloads](https://poser.pugx.org/josegus/laravel-flash/downloads)](//packagist.org/packages/josegus/laravel-flash) [![Latest Unstable Version](https://poser.pugx.org/josegus/laravel-flash/v/unstable)](//packagist.org/packages/josegus/laravel-flash) [![License](https://poser.pugx.org/josegus/laravel-flash/license)](//packagist.org/packages/josegus/laravel-flash)
+[![Latest Stable Version](https://poser.pugx.org/dp-websolutions/laravel-flash/v)](//packagist.org/packages/dp-websolutions/laravel-flash) [![Total Downloads](https://poser.pugx.org/dp-websolutions/laravel-flash/downloads)](//packagist.org/packages/dp-websolutions/laravel-flash) [![Latest Unstable Version](https://poser.pugx.org/dp-websolutions/laravel-flash/v/unstable)](//packagist.org/packages/dp-websolutions/laravel-flash) [![License](https://poser.pugx.org/dp-websolutions/laravel-flash/license)](//packagist.org/packages/dp-websolutions/laravel-flash)
 
 This composer package offers an easy way to manage and show laravel flash message alert notifications. Works with Tailwindcss (default) and Bootstrap.
 
@@ -17,7 +14,7 @@ Multiple messages can be pushed and displayed.
 Require the package by executing:
 
 ```bash
-composer require josegus/laravel-flash
+composer require dp-websolutions/laravel-flash
 ```
 
 
