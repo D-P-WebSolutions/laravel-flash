@@ -1,6 +1,6 @@
 <?php
 
-namespace JoseGus\LaravelFlash\Tests;
+namespace DPWebSolutions\LaravelFlash\Tests;
 
 class FlashSessionMessageTest extends TestCase
 {

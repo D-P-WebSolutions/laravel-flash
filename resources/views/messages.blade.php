@@ -11,7 +11,7 @@
 @endif
 
 @php
-    $framework = \JoseGus\LaravelFlash\Flash::framework();
+    $framework = \DPWebSolutions\LaravelFlash\Flash::framework();
 @endphp
 <script>
     window.FlashNotifications = window.FlashNotifications || {};
