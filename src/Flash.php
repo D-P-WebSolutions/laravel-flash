@@ -6,10 +6,12 @@ class Flash
 {
     protected $type;
     protected $message;
+    protected $now;
 
-    protected function __construct($message = null)
+    protected function __construct($message = null, $now = false)
     {
         $this->message = $message;
+        $this->now = $now;
 
         $this->putFlash('success');
     }
@@ -24,6 +26,13 @@ class Flash
     public static function instance($message = null)
     {
         return new static($message);
+    }
+
+    public function now(bool $now = true)
+    {
+        $this->now = $now;
+
+        return $this;
     }
 
     /**
@@ -184,7 +193,11 @@ class Flash
 
     protected function flash(array $notifications)
     {
-        session()->now($this->key(), $notifications);
+        if ($this->now) {
+            session()->now($this->key(), $notifications);
+        } else {
+            session()->flash($this->key(), $notifications);
+        }
     }
 
     protected function notifications()
