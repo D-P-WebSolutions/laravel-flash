@@ -2,6 +2,10 @@
 
 namespace DPWebSolutions\LaravelFlash\Tests;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class FlashDismissibleTest extends TestCase
 {
     /** @test */

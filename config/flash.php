@@ -1,27 +1,18 @@
 <?php
 
 return [
-
     'session_key' => 'flash_notifications',
 
-    /*
-     * If true, all flash notifications will have an "x" to make them dismissible
-     */
+    // If true, all flash notifications will have an "x" to make them dismissible
     'dismissible' => true,
 
-    /**
-     * Defines which css framework will be used. Allowed values are "tailwind" and "bootstrap"
-     */
+    // Defines which css framework will be used. Allowed values are "tailwind" and "bootstrap"
     'framework' => (string) env('FLASH_FRAMEWORK', 'tailwind'),
 
-    /*
-     * Extra class applied to each html alert notification
-     */
+    // Extra class applied to each html alert notification
     'class' => 'text-white',
 
-    /**
-     * Classes applied on each type of alert notification.
-     */
+    // Classes applied on each type of alert notification.
     'classes' => [
         'tailwind' => [
             'success' => 'bg-green-500',
@@ -44,54 +35,33 @@ return [
         ],
     ],
 
-    /*
-     * Default messages used for all available actions
-     */
+    // Default messages used for all available actions
     'messages' => [
-        /*
-         * Default success message
-         */
+        // Default success message
         'success' => 'Operation executed successfully',
 
-        /*
-         * Default error message
-         */
+        // Default error message
         'error' => 'An error occurred',
 
-        /*
-         * Default warning message
-         */
+        // Default warning message
         'warning' => 'Be careful',
 
-        /*
-         * Used when a new resource has been stored
-         */
+        // Used when a new resource has been stored
         'stored' => 'Stored successfully',
 
-        /*
-         * Used when an existing resource has been updated
-         */
+        // Used when an existing resource has been updated
         'updated' => 'Updated successfully',
 
-        /*
-         * Used when a resource has been deleted
-         */
+        // Used when a resource has been deleted
         'deleted' => 'Deleted successfully',
 
-        /*
-         * Used when you want to notify that something has been pushed to queue
-         */
+        // Used when you want to notify that something has been pushed to queue
         'queued' => 'Operation queued successfully',
     ],
 
-    /*
-     * The package can use the included generic error list view when a validation occurs
-     */
+    // The package can use the included generic error list view when a validation occurs
     'validations' => [
-
-        /*
-         * Determine if the package will use the included validations errors view
-         */
+        // Determine if the package will use the included validations errors view
         'enabled' => true,
 
         /*
@@ -100,29 +70,19 @@ return [
          */
         'view' => 'flash::validations',
 
-        /*
-         * Class applied to alert validation box.
-         */
+        // Class applied to alert validation box.
         'classes' => [
-            /**
-             * Any tailwindcss class
-             */
+            // Any tailwindcss class
             'tailwind' => 'bg-red-600 text-white text-sm',
 
-            /**
-             * Should be any available bootstrap alert type: success, warning, danger, etc.
-             */
+            // Should be any available bootstrap alert type: success, warning, danger, etc.
             'bootstrap' => 'alert-danger',
         ],
 
-        /*
-         * Determine if alert validation will be dismissible
-         */
+        // Determine if alert validation will be dismissible
         'dismissible' => true,
 
-        /*
-         * Extra class applied to alert validation
-         */
+        // Extra class applied to alert validation
         'class' => '',
-    ]
+    ],
 ];

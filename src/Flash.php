@@ -17,7 +17,7 @@ class Flash
     }
 
     /**
-     * Return a new static instance of this class
+     * Return a new static instance of this class.
      *
      * @param null $message
      *
@@ -36,7 +36,7 @@ class Flash
     }
 
     /**
-     * Flash a new "success" message
+     * Flash a new "success" message.
      *
      * @param null $message
      *
@@ -48,7 +48,7 @@ class Flash
     }
 
     /**
-     * Flash a new "error" message
+     * Flash a new "error" message.
      *
      * @param null $message
      *
@@ -60,7 +60,7 @@ class Flash
     }
 
     /**
-     * Flash a new "warning" message
+     * Flash a new "warning" message.
      *
      * @param null $message
      *
@@ -72,7 +72,7 @@ class Flash
     }
 
     /**
-     * Flash a new "stored" message
+     * Flash a new "stored" message.
      *
      * @param null $message
      *
@@ -84,7 +84,7 @@ class Flash
     }
 
     /**
-     * Flash a new "updated" message
+     * Flash a new "updated" message.
      *
      * @param null $message
      *
@@ -96,7 +96,7 @@ class Flash
     }
 
     /**
-     * Flash a new "deleted" message
+     * Flash a new "deleted" message.
      *
      * @param null $message
      *
@@ -108,7 +108,7 @@ class Flash
     }
 
     /**
-     * Flash a new "queued" message
+     * Flash a new "queued" message.
      *
      * @param null $message
      *
@@ -139,7 +139,20 @@ class Flash
     }
 
     /**
-     * Put a new flash message with "$type" key
+     * The class applied to the flash notification type.
+     */
+    public function getNotificationClass(): string
+    {
+        return config("flash.classes.{$this->framework()}.{$this->type}") ?? 'success';
+    }
+
+    public static function framework(): string
+    {
+        return config('flash.framework') ?? 'tailwind';
+    }
+
+    /**
+     * Put a new flash message with "$type" key.
      *
      * @param $type
      * @param $message
@@ -159,7 +172,7 @@ class Flash
     }
 
     /**
-     * Put a new flash message with "$type" key
+     * Put a new flash message with "$type" key.
      *
      * @param $type
      * @param $message
@@ -203,20 +216,5 @@ class Flash
     protected function notifications()
     {
         return session($this->key());
-    }
-
-    /**
-     * The class applied to the flash notification type
-     *
-     * @return string
-     */
-    public function getNotificationClass(): string
-    {
-        return config("flash.classes.{$this->framework()}.{$this->type}") ?? 'success';
-    }
-
-    public static function framework(): string
-    {
-        return config('flash.framework') ?? 'tailwind';
     }
 }

@@ -9,24 +9,10 @@ abstract class TestCase extends Orchestra
 {
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
-    }
-
-    /**
-     * Get package providers.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return array
-     */
-    protected function getPackageProviders($app)
-    {
-        return [LaravelFlashServiceProvider::class];
     }
 
     public function notificationTypes(): array
@@ -40,5 +26,17 @@ abstract class TestCase extends Orchestra
             ['deleted'],
             ['queued'],
         ];
+    }
+
+    /**
+     * Get package providers.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     *
+     * @return array
+     */
+    protected function getPackageProviders($app)
+    {
+        return [LaravelFlashServiceProvider::class];
     }
 }

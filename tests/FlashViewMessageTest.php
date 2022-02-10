@@ -2,6 +2,10 @@
 
 namespace DPWebSolutions\LaravelFlash\Tests;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class FlashViewMessageTest extends TestCase
 {
     /** @test */
@@ -19,10 +23,12 @@ class FlashViewMessageTest extends TestCase
      * @test
      *
      * @dataProvider notificationTypes
+     *
+     * @param mixed $type
      */
     public function view_has_message_for_each_notification_type($type)
     {
-        flash()->$type('A simple message');
+        flash()->{$type}('A simple message');
 
         $this->assertStringContainsString(
             'A simple message',
@@ -34,10 +40,12 @@ class FlashViewMessageTest extends TestCase
      * @test
      *
      * @dataProvider notificationTypes
+     *
+     * @param mixed $type
      */
     public function view_has_default_message_for_each_notification_type($type)
     {
-        flash()->$type();
+        flash()->{$type}();
 
         $this->assertStringContainsString(
             config("flash.messages.{$type}"),
