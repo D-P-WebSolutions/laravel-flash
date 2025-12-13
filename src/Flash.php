@@ -4,11 +4,11 @@ namespace DPWebSolutions\LaravelFlash;
 
 class Flash
 {
-    protected $type;
-    protected $message;
-    protected $now;
+    protected string $type;
+    protected ?string $message;
+    protected ?bool $now;
 
-    protected function __construct($message = null, $now = false)
+    protected function __construct(?string $message = null, ?bool $now = false)
     {
         $this->message = $message;
         $this->now = $now;
@@ -19,16 +19,14 @@ class Flash
     /**
      * Return a new static instance of this class.
      *
-     * @param null $message
-     *
      * @return static
      */
-    public static function instance($message = null)
+    public static function instance(?string $message = null)
     {
         return new static($message);
     }
 
-    public function now(bool $now = true)
+    public function now(?bool $now = true)
     {
         $this->now = $now;
 
@@ -38,11 +36,9 @@ class Flash
     /**
      * Flash a new "success" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function success($message = null)
+    public function success(?string $message = null)
     {
         return $this->putTyped('success', $message);
     }
@@ -50,11 +46,9 @@ class Flash
     /**
      * Flash a new "error" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function error($message = null)
+    public function error(?string $message = null)
     {
         return $this->putTyped('error', $message);
     }
@@ -62,11 +56,9 @@ class Flash
     /**
      * Flash a new "warning" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function warning($message = null)
+    public function warning(?string $message = null)
     {
         return $this->putTyped('warning', $message);
     }
@@ -74,11 +66,9 @@ class Flash
     /**
      * Flash a new "stored" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function stored($message = null)
+    public function stored(?string $message = null)
     {
         return $this->putTyped('stored', $message);
     }
@@ -86,11 +76,9 @@ class Flash
     /**
      * Flash a new "updated" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function updated($message = null)
+    public function updated(?string $message = null)
     {
         return $this->putTyped('updated', $message);
     }
@@ -98,11 +86,9 @@ class Flash
     /**
      * Flash a new "deleted" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function deleted($message = null)
+    public function deleted(?string $message = null)
     {
         return $this->putTyped('deleted', $message);
     }
@@ -110,19 +96,14 @@ class Flash
     /**
      * Flash a new "queued" message.
      *
-     * @param null $message
-     *
      * @return $this
      */
-    public function queued($message = null)
+    public function queued(?string $message = null)
     {
         return $this->putTyped('queued', $message);
     }
 
-    /**
-     * @param bool $dismissible
-     */
-    public function dismissible($dismissible = true)
+    public function dismissible(?bool $dismissible = true)
     {
         $notifications = session()->get($this->key());
 
@@ -154,12 +135,9 @@ class Flash
     /**
      * Put a new flash message with "$type" key.
      *
-     * @param $type
-     * @param $message
-     *
      * @return $this
      */
-    protected function putTyped(string $type, string $message = null)
+    protected function putTyped(string $type, ?string $message = null)
     {
         // Delete last, empty notification
         $notifications = $this->notifications();
@@ -174,12 +152,9 @@ class Flash
     /**
      * Put a new flash message with "$type" key.
      *
-     * @param $type
-     * @param $message
-     *
      * @return $this
      */
-    protected function putFlash(string $type, string $message = null)
+    protected function putFlash(string $type, ?string $message = null)
     {
         $this->type = $type;
 
